@@ -3,13 +3,13 @@ to text data coming from an airline passangers.
 
 Markov Property:
 
-Aij = p (s(t)=j | s(t-1)=i)
+<img src="https://latex.codecogs.com/png.image?\dpi{110}&space;A_{i,j}&space;=&space;p(s_{t}=j&space;|&space;s_{t-1}=i)" title="A_{i,j} = p(s_{t}=j | s_{t-1}=i)" />
 
 We basically have 3 Markov Classifiers all trained with the 3 sentiment classes (positive, neutral, negative). 
 The model uses add-one smoothing method to fake count the i->j step transition.
 The probabilities are converted to log probabilities in order to avoid small multiplications. 
 
-The fitting process is made by initializing the p (initial matrix ~ no prior state | 1D matrix with the vocabulary lenght as size) 
+The fitting process is made by initializing the π (initial matrix ~ no prior state | 1D matrix with the vocabulary lenght as size) 
 and A (state transition matrix | 2D matrix ~ vocabulary length x vocabulary length) that is populated by transition counts.
 Finally the log likelihood is computed for each class and the highest possibility as a number is chosen as the prediction result. 
 
